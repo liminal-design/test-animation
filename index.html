@@ -32,25 +32,41 @@
       text-transform: uppercase;
     }
 
-    [data-us-project],
-    [data-us-project-src] {
+    .unicorn-row {
       position: fixed;
       inset: 0;
-      width: 100vw;
-      height: 100vh;
+      display: flex;
       z-index: -1;
+    }
+
+    .unicorn-half[data-us-project],
+    .unicorn-half[data-us-project-src] {
+      flex: 1;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
-  <!-- Unicorn scene from your exported JSON -->
-  <div
-    id="unicorn-bg"
-    data-us-project-src="https://cdn.jsdelivr.net/gh/liminal-design/test-animation@main/green-beam.json"
-    data-us-scale="1"
-    data-us-dpi="1.5"
-    data-us-fps="60"
-  ></div>
+  <!-- Unicorn scenes split left / right -->
+  <div class="unicorn-row">
+    <div
+      class="unicorn-half"
+      id="unicorn-left"
+      data-us-project-src="https://cdn.jsdelivr.net/gh/liminal-design/test-animation@main/green-beam.json"
+      data-us-scale="1"
+      data-us-dpi="1.5"
+      data-us-fps="60"
+    ></div>
+
+    <div
+      class="unicorn-half"
+      id="unicorn-right"
+      data-us-project-src="https://cdn.jsdelivr.net/gh/liminal-design/test-animation@main/white-beam.json"
+      data-us-scale="1"
+      data-us-dpi="1.5"
+      data-us-fps="60"
+    ></div>
+  </div>
 
   <!-- Fallback / overlay content -->
   <div class="label">Unicorn.studio JSON background test</div>
